@@ -1,26 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import './pages/Home'
-
+import React from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about'; // Import the About component
+import Gallery from './pages/gallery'; // Import the Gallery component
+import theme from './themes/GreenTheme'; // Import the theme
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 
