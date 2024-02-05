@@ -1,0 +1,54 @@
+.contact-card {
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    background: black;
+    color: gold;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 10px gold; /* Permanent glow */
+  }
+  
+  .contact-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold, 0 0 25px gold; /* Enhanced glow on hover */
+  }
+  
+  .contact-card:hover .MuiTypography-root {
+    text-shadow: 0px 0px 10px gold;
+  }
+  
+  .instagram-card {
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow the card */
+  }
+  
+  
+  @keyframes moveAroundBorder {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: 0;
+      left: calc(100% - 20px); /* Adjust for the increased width of the line segment */
+    }
+    50% {
+      top: calc(100% - 10px); /* Adjust for the height of the line segment */
+      left: calc(100% - 20px); /* Adjust for the increased width of the line segment */
+    }
+    75% {
+      top: calc(100% - 10px); /* Adjust for the height of the line segment */
+      left: 0;
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+  
+  .glowing-text {
+    font-size: 1.2em;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  

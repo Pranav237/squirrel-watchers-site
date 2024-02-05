@@ -1,62 +1,99 @@
-import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-// import Footer from "./Footer"; // Assume you have a Footer component
-import Logo from "./logo1.png"; // Import the logo image
+import React from 'react';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import NavigationBar from './navbar';
+import './App.css'; // Make sure your CSS file has the fadeInUp keyframes
 
 function Home() {
-  return (
-    <div style={{ backgroundColor: '#CCD5AE', minHeight: '100vh' }}> {/* Tea green for the page background */}
-      {/* Navigation Bar */}
-      <AppBar position="static" style={{ backgroundColor: '#E9EDC9' }}> {/* Beige for the AppBar */}
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'black' }}> {/* Black for the text */}
-            <img src={Logo} alt="Logo" style={{ maxWidth: '120px' }} /> {/* Logo displayed here */}
-          </Typography>
-          <Button style={{ color: 'black', backgroundColor: '#FAEDCD', marginLeft: '10px' }}>About Us</Button>
-          <Button style={{ color: 'black', backgroundColor: '#FAEDCD', marginLeft: '10px' }}>Gallery</Button>
-          <Button style={{ color: 'black', backgroundColor: '#FAEDCD', marginLeft: '10px' }}>Contact Us</Button>
-          <Button style={{ color: 'black', backgroundColor: '#FAEDCD', marginLeft: '10px' }}>Squirrel Hotspots</Button>
-        </Toolbar>
-      </AppBar>
+  const title = "The Squirrel Watchers of Purdue University";
+  const words = title.split(" ");
+  const cumulativeDelay = words.map((word, index) => 
+    words.slice(0, index).reduce((acc, cur) => acc + cur.length, 0)
+  );
 
-      {/* Hero Section */}
-      <Box 
-        style={{ 
-          height: '250px', 
-          display: 'flex', 
-          justifyContent: 'center', 
+  return (
+    <div className='main-content'>
+      <NavigationBar /> 3 
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#FEFAE0'
+          flexDirection: 'column',
+          padding: '10px',
+          textAlign: 'center',
         }}
       >
-        <Typography variant="h2" component="div" fontFamily="fantasy" style={{ color: 'black' }}>
-          The Squirrel Watchers of Purdue
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{
+            color: 'gold',
+            fontFamily: 'Roboto',
+            fontSize: { xs: '5vw', sm: '3rem' },
+            margin: '10px 0',
+          }}
+        >
+          {words.map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              {word.split("").map((char, charIndex) => (
+                <span 
+                  key={charIndex}
+                  className="animated-letter"
+                  style={{ 
+                    animationDelay: `${(cumulativeDelay[wordIndex] + charIndex) * 0.1}s`
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+              {wordIndex < words.length - 1 && <span>&nbsp;</span>}
+            </React.Fragment>
+          ))}
         </Typography>
-      </Box>0
+      </Box>
 
-      {/* Content Sections with Image Placeholder */}
-      <Container maxWidth="md" style={{ display: 'flex', marginTop: '20px', gap: '20px' }}>
-        <Box flex={1}>
-          <Typography variant="h4" component="h2" gutterBottom style={{ color: 'black' }}>
-            Section Title
+      <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+        <Box 
+          sx={{
+            backgroundColor: 'black',
+            color: 'gold',
+            border: '1px solid gold',
+            borderRadius: '15px',
+            padding: '15px',
+            textAlign: 'center',
+            width: '100%',
+            fontSize: '1em',
+          }}
+        >
+          <Typography variant="h4" component="h2" gutterBottom fontSize={{ xs: '1.25em', sm: '1.5em' }}>
+            Hello!
           </Typography>
-          <Typography variant="body1" gutterBottom style={{ color: 'black' }}>
-            Your content goes here. Explain what your site is about, its features, or any other important information.
+          <Typography variant="body1" gutterBottom fontSize={{ xs: '0.75em', sm: '1em' }}>
+            We are the squirrel watchers of Purdue University. In a NUTshell (get it?), we spot squirrels, take photos, and upload them.
           </Typography>
         </Box>
-        <Box flex={1} style={{ maxWidth: '50%' }}> {/* Image Placeholder */}
-          {/* Insert <img> tag or another image component here */}
-          <div style={{ width: '100%', height: '200px', backgroundColor: '#ddd' }}>Image Placeholder</div>
+        
+        <Box
+          sx={{
+            backgroundColor: 'black',
+            color: 'gold',
+            border: '1px solid gold',
+            borderRadius: '15px',
+            padding: '15px',
+            textAlign: 'center',
+            width: '100%',
+            fontSize: '1em',
+          }}
+        >
+          <Typography variant="body1" gutterBottom fontSize={{ xs: '0.75em', sm: '1em' }}>
+            Submit your pictures here to be featured on our Instagram page!
+          </Typography>
+
         </Box>
       </Container>
 
-      {/* Footer */}
-      {/* <Footer /> */}
     </div>
   );
 }
