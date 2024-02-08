@@ -70,7 +70,7 @@ function Home() {
           <Typography variant="h4" component="h2" gutterBottom fontSize={{ xs: '1.25em', sm: '1.5em' }}>
             Hello!
           </Typography>
-          <Typography variant="body1" gutterBottom fontSize={{ xs: '0.75em', sm: '1em' }}>
+          <Typography variant="body1" gutterBottom fontSize={{ xs: '1em', sm: '1em' }}>
             We are the squirrel watchers of Purdue University. In a NUTshell (get it?), we spot squirrels, take photos, and upload them.
           </Typography>
         </Box>

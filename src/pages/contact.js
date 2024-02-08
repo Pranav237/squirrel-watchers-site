@@ -11,7 +11,7 @@ import './contact.css';
 function Contact() {
   const cardStyles = {
     width: '300px', // Set a fixed width for all cards
-    height: '125px', // Set a fixed height for all cards
+    height: '135px', // Set a fixed height for all cards
     backgroundColor: 'black',
     color: 'gold',
     display: 'flex',
@@ -51,7 +51,7 @@ function Contact() {
   const copyToClipboard = (email) => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(email).then(() => {
-        alert("Email address copied to clipboard");
+        alert("Info copied to clipboard");
       }, (err) => {
         console.error('Could not copy text: ', err);
         copyToClipboardFallback(email);
