@@ -17,9 +17,13 @@ function Home() {
   const [instagramUsername, setInstagramUsername] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(true); // State to track form validity
 
   const handleUploadClick = () => {
-    if (!selectedFile || !instagramUsername) return;
+    if (!selectedFile || !instagramUsername) {
+      setIsFormValid(false); // Set form validity to false if either field is empty
+      return;
+    }
 
     const storageRef = ref(storage, `images/${instagramUsername}/${selectedFile.name}`);
     uploadBytes(storageRef, selectedFile).then((snapshot) => {
@@ -119,11 +123,14 @@ function Home() {
             type="text"
             placeholder="Instagram Username"
             value={instagramUsername}
-            onChange={(e) => setInstagramUsername(e.target.value)}
+            onChange={(e) => {
+              setInstagramUsername(e.target.value);
+              setIsFormValid(true); // Reset form validity on input change
+            }}
             style={{
               backgroundColor: 'black',
               color: 'gold',
-              border: '1px solid gold',
+              border: isFormValid ? '1px solid gold' : '1px solid red', // Apply red border if form is invalid
               borderRadius: '15px',
               padding: '10px',
               width: '35%',
@@ -141,7 +148,10 @@ function Home() {
               type="file"
               accept="image/*"
               hidden
-              onChange={(e) => setSelectedFile(e.target.files[0])}
+              onChange={(e) => {
+                setSelectedFile(e.target.files[0]);
+                setIsFormValid(true); // Reset form validity on file selection
+              }}
             />
           </Button>
           {selectedFile && (
@@ -157,6 +167,9 @@ function Home() {
           >
             Submit
           </Button>
+          {!isFormValid && (
+            <Typography variant="caption" sx={{ color: 'red' }}>Please fill out all fields.</Typography>
+          )}
         </Box>
       </Container>
   

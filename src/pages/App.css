@@ -57,7 +57,7 @@ html, body, #root {
 
 .title-effect:hover {
   transform: translateZ(30px) scale(1.1);
-  text-shadow: 10px 10px 20px rgba(255, 215, 0, 0.9);
+  text-shadow: 10px 10px 20px rgba(122, 112, 52, 0.9);
 }
 
 /* Animation for title letters */
