@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import EmailIcon from '@mui/icons-material/Email';
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import './contact.css';
 
 function Events() {
@@ -99,6 +100,12 @@ function Events() {
                                 <Typography variant="body2" component="div" style={{ marginTop: '20px', textAlign: 'center' }}>
                                     February 15, 2024
                                 </Typography>
+                                <AddToCalendarButton
+                                    name="Test-Event"
+                                    startDate="2023-05-22"
+                                    options={['Apple','Google','Yahoo','iCal']}
+                                    timeZone="America/Los_Angeles"
+                                ></AddToCalendarButton>
                             </CardContent>
                         </Card>
                         <Card sx={{ ...cardStyles, width: '90%', height:'230px' }}>
