@@ -4,7 +4,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import EmailIcon from '@mui/icons-material/Email';
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import './contact.css';
 
 function Events() {
@@ -89,7 +88,7 @@ function Events() {
 
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px' }}>
                         {/* Side by side cards for scheduled events */}
-                        <Card sx={{ ...cardStyles, width: '90%', height:'230px' }}>
+                        <Card sx={{ ...cardStyles, width: '90%', height:'230px'}}>
                             <CardContent>
                                 <Typography variant="h5" component="div" style={{ textAlign: 'center' }}>
                                     Logo Design
@@ -98,27 +97,9 @@ function Events() {
                                     Come to our first event ever! We will host a competition for the best logo design for our club. We will have prizes and food!
                                 </Typography>
                                 <Typography variant="body2" component="div" style={{ marginTop: '20px', textAlign: 'center' }}>
-                                    February 15, 2024
+                                    April 13th, 2024
                                 </Typography>
-                                <AddToCalendarButton
-                                    name="Test-Event"
-                                    startDate="2023-05-22"
-                                    options={['Apple','Google','Yahoo','iCal']}
-                                    timeZone="America/Los_Angeles"
-                                ></AddToCalendarButton>
-                            </CardContent>
-                        </Card>
-                        <Card sx={{ ...cardStyles, width: '90%', height:'230px' }}>
-                            <CardContent>
-                                <Typography variant="h5" component="div" style={{ textAlign: 'center' }}>
-                                    Event 2
-                                </Typography>
-                                <Typography variant="body1" component="div" style={{ marginTop: '20px' }}>
-                                    Come to our first event ever! We will host a competition for the best logo design for our club. We will have prizes and food!
-                                </Typography>
-                                <Typography variant="body2" component="div" style={{ marginTop: '20px', textAlign: 'center' }}>
-                                    February 20, 2024
-                                </Typography>
+        
                             </CardContent>
                         </Card>
                         {/* Add more cards as needed */}

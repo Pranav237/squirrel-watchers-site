@@ -6,13 +6,18 @@ import NavigationBar from './navbar';
 import FileUploadOutlined from '@mui/icons-material/FileUploadOutlined';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
+import newlogo from "../images/newlogo.jpg";
 import { uploadBytes, ref, collection, addDoc, getDownloadURL, storage, db } from '../firebase'; 
 import './App.css';
 
 function Home() {
-  const words = "The Squirrel Watchers of Purdue University".split(" ");
-  const cumulativeDelay = words.map((word, index) => 
-    words.slice(0, index).reduce((acc, cur) => acc + cur.length, 0)
+  const word1 = " Q U I R R E L".split(" ");
+  const word2 = " A T C H E R S".split(" ");
+  const word3 = " T".split(" ");
+  const word4 = " U R D U E".split(" ");
+
+  const cumulativeDelay = word1.map((word, index) =>
+    word1.slice(0, index).reduce((acc, cur) => acc + cur.length, 0)
   );
   const [instagramUsername, setInstagramUsername] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -59,9 +64,11 @@ function Home() {
             fontFamily: 'Roboto',
             fontSize: { xs: '5vw', sm: '3rem' },
             margin: '10px 0',
+            textAlign:'center'
           }}
         >
-          {words.map((word, wordIndex) => (
+          S
+          {word1.map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split("").map((char, charIndex) => (
                 <span 
@@ -74,11 +81,105 @@ function Home() {
                   {char}
                 </span>
               ))}
-              {wordIndex < words.length - 1 && <span>&nbsp;</span>}
+              {wordIndex < word1.length - 1 && <span>&nbsp;</span>}
             </React.Fragment>
           ))}
         </Typography>
+{/* ---- */}
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{
+            color: 'gold',
+            fontFamily: 'Roboto',
+            fontSize: { xs: '5vw', sm: '3rem' },
+            margin: '10px 0',
+          }}
+        >
+          W
+          {word2.map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              {word.split("").map((char, charIndex) => (
+                <span 
+                  key={charIndex}
+                  className="animated-letter"
+                  style={{ 
+                    animationDelay: `${(cumulativeDelay[wordIndex] + charIndex) * 0.1}s`
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+              {wordIndex < word2.length - 1 && <span>&nbsp;</span>}
+            </React.Fragment>
+          ))}
+        </Typography>
+{/* ---- */}
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{
+            color: 'gold',
+            fontFamily: 'Roboto',
+            fontSize: { xs: '5vw', sm: '3rem' },
+            margin: '10px 0',
+          }}
+        >
+          A
+          {word3.map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              {word.split("").map((char, charIndex) => (
+                <span 
+                  key={charIndex}
+                  className="animated-letter"
+                  style={{ 
+                    animationDelay: `${(cumulativeDelay[wordIndex] + charIndex) * 0.1}s`
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+              {wordIndex < word3.length - 1 && <span>&nbsp;</span>}
+            </React.Fragment>
+          ))}
+        </Typography>
+{/* ---- */}
+
+      <Typography
+                variant="h3"
+                component="div"
+                sx={{
+                  color: 'gold',
+                  fontFamily: 'Roboto',
+                  fontSize: { xs: '5vw', sm: '3rem' },
+                  margin: '10px 0',
+                }}
+              >
+                P
+                {word4.map((word, wordIndex) => (
+                  <React.Fragment key={wordIndex}>
+                    {word.split("").map((char, charIndex) => (
+                      <span 
+                        key={charIndex}
+                        className="animated-letter"
+                        style={{ 
+                          animationDelay: `${(cumulativeDelay[wordIndex] + charIndex) * 0.1}s`
+                        }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                    {wordIndex < word4.length - 1 && <span>&nbsp;</span>}
+                  </React.Fragment>
+                ))}
+              </Typography>
+
       </Box>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px', alignItems:'center'}}>
+        <img src={newlogo} alt="logo" style={{ width: '10%', borderRadius: '10px' }} />
+      </div>
+
+
       <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
         <Box 
           sx={{

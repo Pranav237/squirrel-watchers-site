@@ -39,8 +39,8 @@ function NavigationBar() {
           <Link to="/events" style={{ textDecoration: 'none' }}>
             <Button sx={buttonStyle('about')} onClick={() => handleClick('about')}>Events</Button>
           </Link>
-          <Link to="/gallery" style={{ textDecoration: 'none' }}>
-            <Button sx={buttonStyle('gallery')} onClick={() => handleClick('gallery')}>Gallery</Button>
+          <Link to="/join" style={{ textDecoration: 'none' }}>
+            <Button sx={buttonStyle('join')} onClick={() => handleClick('join')}>Join Us</Button>
           </Link>
           <Link to="/contact" style={{ textDecoration: 'none' }}>
             <Button sx={buttonStyle('contact')} onClick={() => handleClick('contact')}>Contact Us</Button>
