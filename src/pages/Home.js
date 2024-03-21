@@ -26,11 +26,16 @@ function Home() {
 
   const handleUploadClick = () => {
     if (!selectedFile || !instagramUsername) {
-      setIsFormValid(false); // Set form validity to false if either field is empty
+      setIsFormValid(false);
       return;
     }
-
-    const storageRef = ref(storage, `images/${instagramUsername}/${selectedFile.name}`);
+  
+    // Check the size of the file. If greater than 2MB, return and set an error state
+    if (selectedFile.size > 2097152) { // 2MB in bytes
+      setOpenSnackbar(true);
+      setSnackbarMessage('File size should not exceed 2MB.');
+      return;
+    }    const storageRef = ref(storage, `images/${instagramUsername}/${selectedFile.name}`);
     uploadBytes(storageRef, selectedFile).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadURL) => {
         addDoc(collection(db, "images"), {
