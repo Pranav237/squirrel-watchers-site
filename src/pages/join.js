@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField'; // Import TextField component
+import Button from '@mui/material/Button'; // Import Button component for the submit button
 import NavigationBar from './navbar';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -60,17 +62,73 @@ function Join() {
         <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '20px', marginTop: '50px' }}>
           <form onSubmit={handleSubmit} style={{ backgroundColor: 'black', color: 'gold', borderRadius: '15px', padding: '20px', textAlign: 'center', width: '100%', fontSize: '1em' }}>
             <div style={{ marginBottom: '60px' }}>
-              <input type="text" name="fullName" value={formData.fullName} placeholder="Please enter your full name" onChange={handleChange} style={{ backgroundColor: 'black', color: 'gold', border: 'none', borderBottom: '1px solid gold', outline: 'none', padding: '10px', width: '100%', textAlign: 'center' }} required />
+              <TextField
+                fullWidth
+                id="fullName"
+                label="Full Name"
+                autoComplete='off'
+                variant="standard"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                InputProps={{
+                  style: { color: 'gold' },
+                }}
+                InputLabelProps={{
+                  style: { color: 'gold' }, // This will make the label gold and bold
+                }}
+                sx={{ '& .MuiInput-underline:before': { borderBottomColor: 'gold' } }}
+                required
+              />
             </div>
-
+            
             <div style={{ marginBottom: '60px' }}>
-              <input type="text" name="instagramUsername" value={formData.instagramUsername} placeholder="Please enter your Instagram username" onChange={handleChange} style={{ backgroundColor: 'black', color: 'gold', border: 'none', borderBottom: '1px solid gold', outline: 'none', padding: '10px', width: '100%', textAlign: 'center' }} required />
+              <TextField
+                fullWidth
+                id="instagramUsername"
+                label="Instagram Username"
+                variant="standard"
+                autoComplete='off'
+                name="instagramUsername"
+                value={formData.instagramUsername}
+                onChange={handleChange}
+                InputProps={{
+                  style: { color: 'gold' },
+                }}
+                InputLabelProps={{
+                  style: { color: 'gold' }, // This will make the label gold and bold
+                }}
+                sx={{ '& .MuiInput-underline:before': { borderBottomColor: 'gold' } }}
+                required
+              />
             </div>
-
+            
             <div style={{ marginBottom: '60px' }}>
-              <input type="text" name="goals" value={formData.goals} placeholder="What do you seek to accomplish and do as a part of the Squirrel Watchers team?" onChange={handleChange} style={{ backgroundColor: 'black', color: 'gold', border: 'none', borderBottom: '1px solid gold', outline: 'none', padding: '10px', width: '100%', textAlign: 'center' }} required />
+              <TextField
+                fullWidth
+                id="goals"
+                label="What are your goals as part of the team?"
+                variant="standard"
+                name="goals"
+                autoComplete='off'
+                value={formData.goals}
+                onChange={handleChange}
+                InputProps={{
+                  style: { color: 'gold' },
+                }}
+                InputLabelProps={{
+                  style: { color: 'gold', maxWidth: '100%', wordWrap: 'break-word' }
+                }}
+                sx={{ '& .MuiInput-underline:before': { borderBottomColor: 'gold' } }}
+                multiline
+                rows={4}
+                required
+              />
             </div>
-            <button type="submit" style={{ backgroundColor: 'gold', color: 'black', border: 'none', borderRadius: '10px', padding: '15px 30px', cursor: 'pointer' }}>Submit</button>
+            
+            <Button variant="contained" type="submit" sx={{ backgroundColor: 'gold', color: 'black', '&:hover': { backgroundColor: '#b29600' }, borderRadius: '10px', padding: '15px 30px' }}>
+              Submit
+            </Button>
           </form>
         </Container>
       </Box>

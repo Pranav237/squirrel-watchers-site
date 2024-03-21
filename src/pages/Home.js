@@ -11,10 +11,10 @@ import { uploadBytes, ref, collection, addDoc, getDownloadURL, storage, db } fro
 import './App.css';
 
 function Home() {
-  const word1 = " Q U I R R E L".split(" ");
-  const word2 = " A T C H E R S".split(" ");
-  const word3 = " T".split(" ");
-  const word4 = " U R D U E".split(" ");
+  const word1 = "S Q U I R R E L".split(" ");
+  const word2 = "W A T C H E R S".split(" ");
+  const word3 = "A T".split(" ");
+  const word4 = "P U R D U E".split(" ");
 
   const cumulativeDelay = word1.map((word, index) =>
     word1.slice(0, index).reduce((acc, cur) => acc + cur.length, 0)
@@ -61,13 +61,13 @@ function Home() {
           component="div"
           sx={{
             color: 'gold',
-            fontFamily: 'Roboto',
+            fontFamily: 'serif',
             fontSize: { xs: '5vw', sm: '3rem' },
             margin: '10px 0',
             textAlign:'center'
           }}
         >
-          S
+          
           {word1.map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split("").map((char, charIndex) => (
@@ -91,12 +91,12 @@ function Home() {
           component="div"
           sx={{
             color: 'gold',
-            fontFamily: 'Roboto',
+            fontFamily: 'serif',
             fontSize: { xs: '5vw', sm: '3rem' },
             margin: '10px 0',
           }}
         >
-          W
+          
           {word2.map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split("").map((char, charIndex) => (
@@ -120,12 +120,12 @@ function Home() {
           component="div"
           sx={{
             color: 'gold',
-            fontFamily: 'Roboto',
+            fontFamily: 'serif',
             fontSize: { xs: '5vw', sm: '3rem' },
             margin: '10px 0',
           }}
         >
-          A
+          
           {word3.map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split("").map((char, charIndex) => (
@@ -150,12 +150,12 @@ function Home() {
                 component="div"
                 sx={{
                   color: 'gold',
-                  fontFamily: 'Roboto',
+                  fontFamily: 'serif',
                   fontSize: { xs: '5vw', sm: '3rem' },
                   margin: '10px 0',
                 }}
               >
-                P
+                
                 {word4.map((word, wordIndex) => (
                   <React.Fragment key={wordIndex}>
                     {word.split("").map((char, charIndex) => (
@@ -242,7 +242,7 @@ function Home() {
             variant="contained"
             component="label"
             startIcon={<FileUploadOutlined />}
-            sx={{ backgroundColor: 'gold', color: 'black', '&:hover': { backgroundColor: '#b29d4f' } }}
+            sx={{ backgroundColor: 'gold', textTransform: 'none', color: 'black', '&:hover': { backgroundColor: '#b29d4f' } }}
           >
             Upload Media
             <input
@@ -264,7 +264,7 @@ function Home() {
           <Button
             variant="contained"
             onClick={handleUploadClick}
-            sx={{ backgroundColor: 'gold', color: 'black', '&:hover': { backgroundColor: '#b29d4f' } }}
+            sx={{ backgroundColor: 'gold', textTransform: 'none',color: 'black', '&:hover': { backgroundColor: '#b29d4f' } }}
           >
             Submit
           </Button>

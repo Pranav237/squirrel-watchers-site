@@ -67,7 +67,7 @@ html, body, #root {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 7s forwards;
+  animation: fadeInUp 1.25s forwards;
 }
 
 /* Fade-in-up animation */

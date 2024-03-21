@@ -33,19 +33,18 @@ function NavigationBar() {
 
         {/* Centered navigation buttons */}
         <Box sx={{ display: 'flex' }}>
-          <Link to="/home" style={{ textDecoration: 'none' }}>
-            <Button sx={buttonStyle('home')} onClick={() => handleClick('home')}>Home</Button>
+          <Link to="/home" style={{ textDecoration: 'none'}}>
+            <Button sx={{ ...buttonStyle('home'), textTransform: 'none' }} onClick={() => handleClick('home')}>Home</Button>
           </Link>
           <Link to="/events" style={{ textDecoration: 'none' }}>
-            <Button sx={buttonStyle('about')} onClick={() => handleClick('about')}>Events</Button>
+            <Button sx={{ ...buttonStyle('about'), textTransform: 'none' }} onClick={() => handleClick('about')}>Events</Button>
           </Link>
-          <Link to="/join" style={{ textDecoration: 'none' }}>
-            <Button sx={buttonStyle('join')} onClick={() => handleClick('join')}>Join Us</Button>
+          <Link to="/join" style={{ textDecoration: 'none'}}>
+            <Button sx={{ ...buttonStyle('join'), textTransform: 'none' }} onClick={() => handleClick('join')}>Join Us</Button>
           </Link>
           <Link to="/contact" style={{ textDecoration: 'none' }}>
-            <Button sx={buttonStyle('contact')} onClick={() => handleClick('contact')}>Contact Us</Button>
-          </Link>
-          {/* <Link to="/hotspots" style={{ textDecoration: 'none' }}>
+            <Button sx={{ ...buttonStyle('contact'), textTransform: 'none' }} onClick={() => handleClick('contact')}>Contact Us</Button>
+          </Link>          {/* <Link to="/hotspots" style={{ textDecoration: 'none' }}>
             <Button sx={buttonStyle('hotspots')} onClick={() => handleClick('hotspots')}>Squirrel Hotspots</Button>
           </Link> */}
         </Box>
