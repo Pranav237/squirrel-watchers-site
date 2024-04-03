@@ -19,12 +19,12 @@ function Events() {
         cursor: 'pointer',
     };
       
-    const titleStyle = {
-        fontSize: '3em', // Set the font size to match the About Us page
-        color: 'gold', // Match the color
-        textAlign: 'center',
-        marginTop: '26px', // Adjust top margin as needed
-    };
+    // const titleStyle = {
+    //     fontSize: '3em', // Set the font size to match the About Us page
+    //     color: 'gold', // Match the color
+    //     textAlign: 'center',
+    //     marginTop: '26px', // Adjust top margin as needed
+    // };
 
     const copyToClipboardFallback = (text) => {
         const textarea = document.createElement('textarea');
@@ -59,30 +59,7 @@ function Events() {
         <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
             <NavigationBar />
             <div style={{ padding: '40px', textAlign: 'center' }}>
-                <Typography variant="h2" component="h2" style={titleStyle} fontWeight={'bold'}>
-                    Events
-                </Typography>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-                    {/* Email Card */}
-                    <Card sx={cardStyles} onClick={() => copyToClipboard('squirrelwatcherspurdue@gmail.com')}>
-                        <CardContent>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                Email Us
-                            </Typography>
-                            <Typography variant='h6' sx={{ display: 'flex', alignItems: 'center' }}>
-                                Have event ideas? Send us an event request via email!
-                            </Typography>
-                            <Typography variant="h6" component="div" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <EmailIcon sx={{ marginRight: '8px' }} />
-                                Click to copy email!
-                            </Typography>
-                        </CardContent>
-                    </Card>
-
-                    <hr style={{ width: '90%', border: '1px solid gold', margin: '30px' }} />
-
-                    <Typography variant="h2" component="h2" style={{fontSize: '3em', color: 'gold', textAlign: 'center', marginTop: '1px'}} fontWeight={'bold'}>
+            <Typography variant="h2" component="h2" style={{fontSize: '3em', color: 'gold', textAlign: 'center', marginTop: '1px'}} fontWeight={'bold'}>
                         Current Events
                     </Typography>
 
@@ -104,6 +81,27 @@ function Events() {
                         </Card>
                         {/* Add more cards as needed */}
                     </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <hr style={{ width: '90%', border: '1px solid gold', margin: '30px' }} />
+
+                    {/* Email Card */}
+                    <Card sx={cardStyles} onClick={() => copyToClipboard('squirrelwatcherspurdue@gmail.com')}>
+                        <CardContent>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Email Us
+                            </Typography>
+                            <Typography variant='h6' sx={{ display: 'flex', alignItems: 'center' }}>
+                                Have event ideas? Send us an event request via email!
+                            </Typography>
+                            <Typography variant="h6" component="div" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <EmailIcon sx={{ marginRight: '8px' }} />
+                                Click to copy email!
+                            </Typography>
+                        </CardContent>
+                    </Card>
+
+
                 </div>
             </div>
         </div>

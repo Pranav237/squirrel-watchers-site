@@ -19,7 +19,6 @@ function Join() {
   const [formData, setFormData] = useState({
     fullName: '',
     instagramUsername: '',
-    reasonToJoin: '',
     goals: '',
   });
 
@@ -40,7 +39,6 @@ function Join() {
       setFormData({
         fullName: '',
         instagramUsername: '',
-        reasonToJoin: '',
         goals: '',
       });
     } catch (error) {

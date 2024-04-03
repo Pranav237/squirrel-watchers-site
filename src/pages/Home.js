@@ -26,16 +26,11 @@ function Home() {
 
   const handleUploadClick = () => {
     if (!selectedFile || !instagramUsername) {
-      setIsFormValid(false);
+      setIsFormValid(false); // Set form validity to false if either field is empty
       return;
     }
-  
-    // Check the size of the file. If greater than 2MB, return and set an error state
-    if (selectedFile.size > 2097152) { // 2MB in bytes
-      setOpenSnackbar(true);
-      setSnackbarMessage('File size should not exceed 2MB.');
-      return;
-    }    const storageRef = ref(storage, `images/${instagramUsername}/${selectedFile.name}`);
+
+    const storageRef = ref(storage, `images/${instagramUsername}/${selectedFile.name}`);
     uploadBytes(storageRef, selectedFile).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadURL) => {
         addDoc(collection(db, "images"), {
@@ -204,6 +199,9 @@ function Home() {
           <Typography variant="body1" gutterBottom fontSize={{ xs: '1em', sm: '1em' }}>
             We are the squirrel watchers of Purdue University. In a NUTshell (get it?), we spot squirrels, take photos, and upload them.
           </Typography>
+          <Typography variant="body1" gutterBottom fontSize={{ xs: '1em', sm: '1em' }}>
+            Find us at purdue.squirrels on Instagram!
+          </Typography>
         </Box>
         
         <Box
@@ -231,16 +229,16 @@ function Home() {
             value={instagramUsername}
             onChange={(e) => {
               setInstagramUsername(e.target.value);
-              setIsFormValid(true); // Reset form validity on input change
+              setIsFormValid(true);
             }}
             style={{
               backgroundColor: 'black',
               color: 'gold',
-              border: isFormValid ? '1px solid gold' : '1px solid red', // Apply red border if form is invalid
+              border: isFormValid ? '1px solid gold' : '1px solid red',
               borderRadius: '15px',
               padding: '10px',
               width: '35%',
-              textAlign: 'center', // Center the text horizontally
+              textAlign: 'center',
             }}
           />
           <Button
