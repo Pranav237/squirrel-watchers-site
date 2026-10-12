@@ -200,7 +200,7 @@ function Home() {
             We are the squirrel watchers of Purdue University. In a NUTshell (get it?), we spot squirrels, take photos, and upload them.
           </Typography>
           <Typography variant="body1" gutterBottom fontSize={{ xs: '1em', sm: '1em' }}>
-            Find us at purdue.squirrels on Instagram!
+            Find us at squirrel_watchers_purdue on Instagram!
           </Typography>
         </Box>
         
